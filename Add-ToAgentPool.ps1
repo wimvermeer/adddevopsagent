@@ -19,6 +19,10 @@ else {
 New-Item -Path C:\Temp -ItemType Directory
 Set-Location C:\Temp
 
+#Install the needed modules
+Install-Module Pester -Force
+Install-Module -Name Az -RequiredVersion 3.1.0 -Force
+
 $url = "https://github.com/PowerShell/PowerShell/releases/download/v7.1.0/PowerShell-7.1.0-win-x64.msi"
 $out = "C:\Temp\PSCore.msi"
 #Download and install powershell core v 7.1.0 
