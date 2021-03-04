@@ -9,6 +9,7 @@ else {
     icacls $modulePath /grant Administrators:'F' /inheritance:d /T
     Remove-Item -Path $modulePath -Recurse -Force -Confirm:$false
 }
+Get-PackageProvider -Name NuGet -ForceBootstrap | Out-Null
 Install-Module -Name Pester -Force -SkipPublisherCheck
 if($null -eq (Get-PSDrive -Name Z -ErrorAction SilentlyContinue)){
     cmd.exe /C "cmdkey /add:`"wdevtmdfgher.file.core.windows.net`" /user:`"Azure\wdevtmdfgher`" /pass:`"lKJFswVijoSjK6QBOjccRLXrdxPIhCYt4GhzE7cLc5uS3PlkgByQunYy8euR23ga5UaWQPFiUaAPctTIMjEkjA==`""
